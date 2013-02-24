@@ -145,11 +145,9 @@ class DropperImpl implements DropperInt
     // TODO: Need parameters from DigitalOcean.
     // TODO: Need to write a "test".
     //
-    public function newDroplet($name="",$image_id="",$region_id="",$size_id="")
+    public function newDroplet($name="",$image_id="",$region_id="",$size_id="",
+                               $ssh_key_ids="")
     {
-        print "NOTICE: PENDING IMPLEMENTATION\n";
-        die("DigitalOcean.com please contact adam@runbymany.com\n");
-        
         // TODO: Detect when curl_init not available
         if ($name == "")
         {
@@ -174,9 +172,17 @@ class DropperImpl implements DropperInt
         }
         
         $newDropletString = "droplets/new";
-        $newDropletParameters = "name=$name&size_id=$size_id&" .
-                                "image_id=$image_id&region_id=$region_id&";
-                                 
+
+        if ($ssh_key_ids != "")
+        {
+            $newDropletParameters = "name=$name&size_id=$size_id&" .
+                                    "image_id=$image_id&region_id=$region_id&" .
+                                    "ssh_key_ids=$ssh_key_ids&";
+        } else {
+            $newDropletParameters = "name=$name&size_id=$size_id&" .
+                                    "image_id=$image_id&region_id=$region_id&";
+        }
+
         $newDroplet = curl_init(
             $this->generateBaseQueryString(
                 $newDropletString, $newDropletParameters
