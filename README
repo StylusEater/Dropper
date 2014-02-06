@@ -1,9 +1,9 @@
 Dropper is a PHP wrapper around the digitalocean.com Application Programming
 Interface (API). A link to the API can be found at the end of this document. 
-You can also get a copy of the API document using this API. The API as of 
-01/17/13 is not fully operational. There are some methods yet to be implemented
-on the part of Digital Ocean. Once they are implemented I hope they will reach
-out to me to fix things in this library. 
+You can also get a copy of the API document using this PHP library. 
+
+You will need to install the PHP curl library (php5-curl on Debian) and JSON
+library.
 
 You will need a CLIENT ID/KEY and an API KEY from digitalocean.com before using
 this library. Once you have those components you will need to create a 
@@ -12,6 +12,9 @@ example.ini for you to see what is required in terms of data/settings.
 
 There are some "tests" (really examples) found in the test directory that might
 help you. 
+
+There is also documentation in the docs directory which you can regenerate with
+phpdoc as shown in the DOC readme file.
 
 If you have questions please contact me at adam @t runbymany <dot> com . If you
 want to contribute please submit a pull request. 
