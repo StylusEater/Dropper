@@ -2,5 +2,4 @@ We use phpdoc to generate the documentation for our code.
 
 pear channel-discover pear.phpdoc.org
 pear install phpdoc/phpDocumentor
-
-
+phpdoc -d ./lib -t ./docs/
