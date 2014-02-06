@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                    </ul>
+                    </li>
+                    <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">21</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-94928769"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-94928769" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/DropperInt.html">DropperInt</a></li>
+                                                                                                    <li class="class"><a href="../classes/DropperImpl.html">DropperImpl</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>DropperImpl</h1>
+                    <p><em>This class implements the interface to Dropper. Right now
+we simply require the setup function to be implemented but
+as the DigitalOcean API solidifies we might require others
+to be implemented.</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/DropperImpl.html#method_setup" class="">setup()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method___destruct" class="">__destruct()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_getDocumentation" class="">getDocumentation()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_displayDocumentation" class="">displayDocumentation()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_showAllActiveDroplets" class="">showAllActiveDroplets()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_showDroplet" class="">showDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_newDroplet" class="">newDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_rebootDroplet" class="">rebootDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_powerCycleDroplet" class="">powerCycleDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_shutdownDroplet" class="">shutdownDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_powerOffDroplet" class="">powerOffDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_powerOnDroplet" class="">powerOnDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_resetRootPassword" class="">resetRootPassword()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_resizeDroplet" class="">resizeDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_takeSnapshot" class="">takeSnapshot()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_restoreDroplet" class="">restoreDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_rebuildDroplet" class="">rebuildDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_enableAutomaticBackups" class="deprecated">enableAutomaticBackups()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_disableAutomaticBackups" class="deprecated">disableAutomaticBackups()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_destroyDroplet" class="">destroyDroplet()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_allRegions" class="">allRegions()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_allImages" class="">allImages()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_showImage" class="">showImage()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_destroyImage" class="">destroyImage()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_transferImage" class="">transferImage()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_allSSHKeys" class="">allSSHKeys()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_showSSHKey" class="">showSSHKey()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_addSSHKey" class="">addSSHKey()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_editSSHKey" class="">editSSHKey()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_destroySSHKey" class="">destroySSHKey()</a><br />
+                                                                    <a href="../classes/DropperImpl.html#method_allSizes" class="">allSizes()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/DropperImpl.html#method_generateBaseQueryString" class="">generateBaseQueryString()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/DropperImpl.html#property__BASE" class="">$_BASE</a><br />
+                                                                    <a href="../classes/DropperImpl.html#property__CONFIG" class="">$_CONFIG</a><br />
+                                                                    <a href="../classes/DropperImpl.html#property__DESTROY_ENABLED" class="">$_DESTROY_ENABLED</a><br />
+                                                                    <a href="../classes/DropperImpl.html#property__DROPPER_API_KEY" class="">$_DROPPER_API_KEY</a><br />
+                                                                    <a href="../classes/DropperImpl.html#property__DROPPER_CLIENT_ID" class="">$_DROPPER_CLIENT_ID</a><br />
+                                                                    <a href="../classes/DropperImpl.html#property__URI_ID" class="">$_URI_ID</a><br />
+                                                                    <a href="../classes/DropperImpl.html#property__URI_KEY" class="">$_URI_KEY</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/DropperImpl.php.html"><div class="path-wrapper">DropperImpl.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\DropperImpl</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                                    <p>Add supported DNS functions.</p>
+                                                                    <p>Add general error detection method with callback.</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__BASE" name="property__BASE" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_BASE</h3>
+                <pre class="signature">$_BASE</pre>
+                <p><em>\private @property $_BASE The internal reference to the base URL of the
+API endpoint.</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__CONFIG" name="property__CONFIG" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_CONFIG</h3>
+                <pre class="signature">$_CONFIG</pre>
+                <p><em>\private @property $_CONFIG The internal reference to the settings file.</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__DESTROY_ENABLED" name="property__DESTROY_ENABLED" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_DESTROY_ENABLED</h3>
+                <pre class="signature">$_DESTROY_ENABLED</pre>
+                <p><em>\private @property $_DESTROY_ENABLED The internal reference to whether the
+user allowed deletion of droplets in their settings file. This helps protect
+against accidental deletions.</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__DROPPER_API_KEY" name="property__DROPPER_API_KEY" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_DROPPER_API_KEY</h3>
+                <pre class="signature">$_DROPPER_API_KEY</pre>
+                <p><em>\private @property $_DROPPER_API_KEY The internal reference to the unique
+user API KEY assigned by DigitalOcean.com.</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__DROPPER_CLIENT_ID" name="property__DROPPER_CLIENT_ID" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_DROPPER_CLIENT_ID</h3>
+                <pre class="signature">$_DROPPER_CLIENT_ID</pre>
+                <p><em>\private @property $_DROPPER_CLIENT_ID The internal reference to the unique
+user CLIENT ID assigned by DigitalOcean.com.</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__URI_ID" name="property__URI_ID" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_URI_ID</h3>
+                <pre class="signature">$_URI_ID</pre>
+                <p><em>\private @property $_URI_ID The internal reference to the component of the
+API request URI containing the user CLIENT ID.</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__URI_KEY" name="property__URI_KEY" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_URI_KEY</h3>
+                <pre class="signature">$_URI_KEY</pre>
+                <p><em>\private @property $_URI_KEY The internal reference to the component of the
+API request URI containing the user API KEY.</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setup" name="method_setup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setup(string <span class="argument">$config</span>) : void</pre>
+                <p><em>A function used to source the configuration options and
+make sure you have the proper libraries installed.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$config</td>
+                                <td><p>Path to the configuration file with
+personal API credentials. The file should be named
+settings.ini but it is not a strict requirement, just
+passing a valid path is required. Example settings are
+contained in example.ini in the root of the project.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___destruct" name="method___destruct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__destruct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__destruct()</pre>
+                <p><em>An unused cleanup function written for the sake of being pedantic.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDocumentation" name="method_getDocumentation" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDocumentation()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDocumentation() : string</pre>
+                <p><em>Display a link to the DigitalOcean.com API documentation.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_displayDocumentation" name="method_displayDocumentation" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">displayDocumentation()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">displayDocumentation() : string</pre>
+                <p><em>Print the entire contents of the documentation page to STDOUT.</em></p>
+                <p>WARNING: This prints out the whole documentation page.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_showAllActiveDroplets" name="method_showAllActiveDroplets" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">showAllActiveDroplets()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">showAllActiveDroplets() : \JSON</pre>
+                <p><em>Returns all active droplets that are currently running in your
+account. All available API information is presented for each
+droplet.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_showDroplet" name="method_showDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">showDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">showDroplet(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Returns full information for a specific droplet ID that is
+passed in the URL.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_newDroplet" name="method_newDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">newDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">newDroplet(string <span class="argument">$name</span>, integer <span class="argument">$image_id</span>, integer <span class="argument">$region_id</span>, integer <span class="argument">$size_id</span>, integer <span class="argument">$ssh_key_ids</span>, boolean <span class="argument">$private_networking</span>, boolean <span class="argument">$backups_enabled</span>) : \JSON</pre>
+                <p><em>Enables you to create a new droplet.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name</td>
+                                <td><p>The name of the droplet.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$image_id</td>
+                                <td><p>The ID of a particular GNU/Linux distribution.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$region_id</td>
+                                <td><p>The ID of the desired datacenter.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$size_id</td>
+                                <td><p>The size of the droplet.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$ssh_key_ids</td>
+                                <td><p>The ID of an ssh key registered in your account.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$private_networking</td>
+                                <td><p>Enable a private network interface if the
+selected region supports it.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$backups_enabled</td>
+                                <td><p>Enables backups of the droplets data.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_rebootDroplet" name="method_rebootDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">rebootDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">rebootDroplet(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables you to reboot a droplet. This is the preferred method
+to use if a server is not responding.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_powerCycleDroplet" name="method_powerCycleDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">powerCycleDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">powerCycleDroplet(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables you to power cycle a droplet. This will power down
+the droplet and then power it up.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shutdownDroplet" name="method_shutdownDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shutdownDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shutdownDroplet(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables you to shutdown a running droplet. The droplet will
+remain in your account and you will continue to be billed.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_powerOffDroplet" name="method_powerOffDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">powerOffDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">powerOffDroplet(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables you to power off a running droplet. The droplet will
+remain in your account and you will continue to be billed.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a test.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_powerOnDroplet" name="method_powerOnDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">powerOnDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">powerOnDroplet(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables you to power on a powered off droplet.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a test.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_resetRootPassword" name="method_resetRootPassword" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">resetRootPassword()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">resetRootPassword(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables you to reset the root password for a droplet. Please be aware
+that this will reboot the droplet.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a test.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_resizeDroplet" name="method_resizeDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">resizeDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">resizeDroplet(integer <span class="argument">$dropletID</span>, integer <span class="argument">$size_id</span>) : \JSON</pre>
+                <p><em>Enables you to resize a specific droplet to a different size.</em></p>
+                <p>This will affect the number of processors and memory allocated to the
+droplet.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$size_id</td>
+                                <td><p>The size of the droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_takeSnapshot" name="method_takeSnapshot" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">takeSnapshot()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">takeSnapshot(integer <span class="argument">$dropletID</span>, string <span class="argument">$name</span>) : \JSON</pre>
+                <p><em>Enables you to take a snapshot of the running droplet, which
+can later be restored or used to create a new droplet from the same
+image. Please be aware this may cause a reboot.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name</td>
+                                <td><p>The name of the snapshot.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_restoreDroplet" name="method_restoreDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">restoreDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">restoreDroplet(integer <span class="argument">$dropletID</span>, integer <span class="argument">$image_id</span>) : \JSON</pre>
+                <p><em>Enables you to restore a droplet with a previous image or
+snapshot. This will be a mirror copy of the image or snapshot to your
+droplet. Be sure you have backed up any necessary information prior to
+restore.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$image_id</td>
+                                <td><p>The size of the droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_rebuildDroplet" name="method_rebuildDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">rebuildDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">rebuildDroplet(integer <span class="argument">$dropletID</span>, integer <span class="argument">$image_id</span>) : \JSON</pre>
+                <p><em>Enables you to reinstall a droplet with a default image. This
+is useful if you want to start again but retain the same IP address for
+your droplet.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$image_id</td>
+                                <td><p>The size of the droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_enableAutomaticBackups" name="method_enableAutomaticBackups" class="anchor"></a>
+            <article class="method">
+                <h3 class="public deprecated">enableAutomaticBackups()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">enableAutomaticBackups(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables automatic backups which run in the background daily
+to backup your droplet&#039;s data.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                                <aside class="alert alert-block alert-error">
+                    <h4>Deprecated</h4>
+                    
+                </aside>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_disableAutomaticBackups" name="method_disableAutomaticBackups" class="anchor"></a>
+            <article class="method">
+                <h3 class="public deprecated">disableAutomaticBackups()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">disableAutomaticBackups(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Disables automatic backups from running to backup your
+droplet&#039;s data.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                                <aside class="alert alert-block alert-error">
+                    <h4>Deprecated</h4>
+                    
+                </aside>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_destroyDroplet" name="method_destroyDroplet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">destroyDroplet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">destroyDroplet(integer <span class="argument">$dropletID</span>) : \JSON</pre>
+                <p><em>Enables you to destroy one of your droplets - this is irreversible.</em></p>
+                <p>In order to use this method you must enable it in your settings file.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$dropletID</td>
+                                <td><p>The unique ID of a particular droplet.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_allRegions" name="method_allRegions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">allRegions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">allRegions() : \JSON</pre>
+                <p><em>Returns all the available regions within the Digital
+Ocean cloud.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_allImages" name="method_allImages" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">allImages()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">allImages() : \JSON</pre>
+                <p><em>Shows all the available images that can be accessed by your
+client ID. You will have access to all public images by default, and any
+snapshots or backups that you have created in your own account.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_showImage" name="method_showImage" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">showImage()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">showImage(integer <span class="argument">$image_id</span>) : \JSON</pre>
+                <p><em>Displays the attributes of an image.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$image_id</td>
+                                <td><p>The unique ID of a particular droplet image.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_destroyImage" name="method_destroyImage" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">destroyImage()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">destroyImage(integer <span class="argument">$image_id</span>) : \JSON</pre>
+                <p><em>Destroys one of your droplet images - this is irreversible.</em></p>
+                <p>In order to use this method you must enable it in your settings file.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$image_id</td>
+                                <td><p>The unique ID of a particular droplet image.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_transferImage" name="method_transferImage" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">transferImage()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">transferImage(integer <span class="argument">$image_id</span>, integer <span class="argument">$region_id</span>) : \JSON</pre>
+                <p><em>Transfers an image to another region in the DigitalOcean.com cloud.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$image_id</td>
+                                <td><p>The unique ID of a particular droplet image.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$region_id</td>
+                                <td><p>The ID of the desired datacenter.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Need to write a "test".</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_allSSHKeys" name="method_allSSHKeys" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">allSSHKeys()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">allSSHKeys() : \JSON</pre>
+                <p><em>Lists all the available public SSH keys in your account that
+can be added to a droplet on creation.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_showSSHKey" name="method_showSSHKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">showSSHKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">showSSHKey(integer <span class="argument">$key_id</span>) : \JSON</pre>
+                <p><em>Show a particular SSH key in your account that can be added to
+a droplet.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$key_id</td>
+                                <td><p>The unique ID of a particular key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addSSHKey" name="method_addSSHKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addSSHKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addSSHKey(string <span class="argument">$name</span>, string <span class="argument">$ssh_pub_key</span>) : \JSON</pre>
+                <p><em>Add a new public SSH key to your account.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name</td>
+                                <td><p>The name of your SSH public key.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$ssh_pub_key</td>
+                                <td><p>The contents of your public key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_editSSHKey" name="method_editSSHKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">editSSHKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">editSSHKey(integer <span class="argument">$key_id</span>, string <span class="argument">$ssh_pub_key</span>) : \JSON</pre>
+                <p><em>Modify an existing public SSH key in your account.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$key_id</td>
+                                <td><p>The unique ID of a particular key.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$ssh_pub_key</td>
+                                <td><p>The contents of your public key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_destroySSHKey" name="method_destroySSHKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">destroySSHKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">destroySSHKey(integer <span class="argument">$key_id</span>) : \JSON</pre>
+                <p><em>Delete a particular SSH key from your account.</em></p>
+                <p>In order to use this method you must enable it in your settings file.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$key_id</td>
+                                <td><p>The unique ID of a particular key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_allSizes" name="method_allSizes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">allSizes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">allSizes() : \JSON</pre>
+                <p><em>This method returns all the available sizes that can be used to create a
+droplet.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \JSON
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_generateBaseQueryString" name="method_generateBaseQueryString" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">generateBaseQueryString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">generateBaseQueryString(string <span class="argument">$base</span>, string <span class="argument">$override</span>) : string</pre>
+                <p><em>The internal function used to generate the base API URI using the
+unique CLIENT ID and unique API KEY.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$base</td>
+                                <td><p>This is the base URI of the API. In case the
+endpoint changes in the future it can be overriden here but is
+currently blank and uses the default.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$override</td>
+                                <td><p>This is used to add additonal options
+not currently implemented or supported by the API.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Base URI of the API.</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">DropperImpl.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/DropperImpl.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on February 6th, 2014 at 16:31.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
