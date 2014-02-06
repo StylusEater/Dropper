@@ -88,12 +88,12 @@ class DropperImpl implements DropperInt
     public function setup($config) 
     {
 
-        if (!function_exists( curl_init() ))
+        if (!function_exists( "curl_init" ))
         {
             die("ERROR: You must have the PHP curl extensions installed.\n");
         }
 
-        if (!function_exists( json_decode() ))
+        if (!function_exists( "json_decode" ))
         {
             die("ERROR: You must have the PHP JSON extensions installed.\n");
         }
