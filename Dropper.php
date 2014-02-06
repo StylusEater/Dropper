@@ -25,7 +25,7 @@ require_once 'lib/DropperImpl.php';
 
 class Dropper extends DropperImpl
 {
-    const version = '0.1';
+    const version = '0.2';
 }
 
 ?>
