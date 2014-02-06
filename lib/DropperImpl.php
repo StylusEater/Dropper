@@ -31,6 +31,7 @@ require_once "DropperInt.php";
  * 
  * @todo Add supported DNS functions.
  * @todo Add general error detection method with callback.
+ * @todo Add supported events function.
  * 
  */
 class DropperImpl implements DropperInt
